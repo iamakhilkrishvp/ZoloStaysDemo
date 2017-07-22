@@ -6,6 +6,7 @@
     <string name="hint_email_id"> YOUR EMAIL</string>
     <string name="reset_password_text"> RESET PASSWORD</string>
     <string name="login_text">LOG IN</string>
+    <string name="update_text">UPDATE</string>
     <string name="register_text">REGISTER</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -24,4 +25,5 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_user_registration">UserRegistrationActivity</string>
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 </resources>
