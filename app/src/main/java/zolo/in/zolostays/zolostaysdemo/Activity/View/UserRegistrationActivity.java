@@ -9,7 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.xwray.passwordview.PasswordView;
@@ -23,7 +23,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
     EditText etPhoneNumber, etUserEmailId, etUserName;
     PasswordView etPassword;
     TextView registerButton, goToLoginButton;
-    RelativeLayout parentLayout;
+    ScrollView parentLayout;
     Utility utility;
     ZoloDbHelper dbHelper;
 
@@ -42,7 +42,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         etPassword.setHintTextColor(Color.parseColor("#FFEB3B"));
         registerButton = (TextView) findViewById(R.id.textView11);
         goToLoginButton = (TextView) findViewById(R.id.textView8);
-        parentLayout = (RelativeLayout) findViewById(R.id.parentLayout);
+        parentLayout = (ScrollView) findViewById(R.id.parentLayout);
         utility = new Utility(getApplicationContext());
         dbHelper = new ZoloDbHelper(getApplicationContext());
         etPhoneNumber.addTextChangedListener(new TextWatcher() {

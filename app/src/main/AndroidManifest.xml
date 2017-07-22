@@ -22,6 +22,10 @@
         <activity
             android:name=".Activity.View.UserRegistrationActivity"
             android:label="@string/title_activity_user_registration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.View.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -2,6 +2,9 @@
     <string name="app_name">ZoloStaysDemo</string>
     <string name="action_settings">Settings</string>
     <string name="prompt_email">PHONE NUMBER</string>
+    <string name="hint_phone_number">PHONE NUMBER</string>
+    <string name="hint_email_id"> YOUR EMAIL</string>
+    <string name="reset_password_text"> RESET PASSWORD</string>
     <string name="login_text">LOG IN</string>
     <string name="register_text">REGISTER</string>
     <string name="prompt_password">Password (optional)</string>
@@ -20,4 +23,5 @@
     <string name="title_activity_forgot_password_activty">ForgotPasswordActivty</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_user_registration">UserRegistrationActivity</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
 </resources>
