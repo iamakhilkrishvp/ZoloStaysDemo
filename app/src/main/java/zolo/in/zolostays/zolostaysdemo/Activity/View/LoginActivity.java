@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.xwray.passwordview.PasswordView;
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     TextView tvForgottenPassword, tvCreateAccountBtn;
     Button btnLogin;
     Utility utility;
-    RelativeLayout parentLayout;
+    ScrollView parentLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvForgottenPassword = (TextView) findViewById(R.id.forgottenPasswordText);
         tvCreateAccountBtn = (TextView) findViewById(R.id.createAccountButton);
         btnLogin = (Button) findViewById(R.id.loginButton);
-        parentLayout = (RelativeLayout) findViewById(R.id.parentLayout);
+        parentLayout = (ScrollView) findViewById(R.id.parentLayout);
         btnLogin.setOnClickListener(this);
         tvCreateAccountBtn.setOnClickListener(this);
         tvForgottenPassword.setOnClickListener(this);
@@ -113,6 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 break;
             case R.id.forgottenPasswordText:
+                Intent intent1 = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent1);
                 break;
         }
     }
