@@ -1,5 +1,6 @@
 package zolo.in.zolostays.zolostaysdemo.Activity.View;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -108,8 +109,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 loginSession();
                 break;
             case R.id.createAccountButton:
-               /* Intent intent = new Intent(getApplicationContext(),UserRegistrationActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), UserRegistrationActivity.class);
+                startActivity(intent);
                 break;
             case R.id.forgottenPasswordText:
                 break;
