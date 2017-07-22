@@ -8,7 +8,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,10 +17,6 @@ import android.widget.TextView;
 
 import com.xwray.passwordview.PasswordView;
 
-import java.util.ArrayList;
-
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
 import zolo.in.zolostays.zolostaysdemo.Activity.Presenter.Utility;
 import zolo.in.zolostays.zolostaysdemo.R;
 
@@ -138,7 +133,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String phoneNumber = etPhoneNumber.getText().toString();
         String password = etPassword.getText().toString();
         int responseValue = utility.getValidityOfUser(phoneNumber, password);
-        Log.e("response....", "" + responseValue);
         if (responseValue == 1) {
             Snackbar snackbar = Snackbar
                     .make(parentLayout, "Log in successfully.", Snackbar.LENGTH_LONG);
@@ -160,13 +154,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void test() {
-        Log.e("nknbk", " mhbj");
-        ZoloDbHelper zoloDbHelper = new ZoloDbHelper(getApplicationContext());
-        ArrayList<User> userDetailsList = new ArrayList<User>();
-        userDetailsList = (ArrayList<User>) zoloDbHelper.getUserDetailsFromUserDetailsTable();
-        for (int i = 0; i < userDetailsList.size(); i++) {
-            Log.e("phone Number....", userDetailsList.get(i).getUserPhoneNumber());
-        }
-    }
+
 }

@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,9 +57,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         resetPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideSoftKeyBoard();
                 if (etUserEmailId.getText().toString().length() == 0) {
                     Snackbar snackbar = Snackbar
                             .make(parentLayout, "Invalid Email address", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                } else if (!isValidMail(etUserEmailId.getText().toString())) {
+                    Snackbar snackbar = Snackbar
+                            .make(parentLayout, "Invalid Email Address.", Snackbar.LENGTH_LONG);
                     snackbar.show();
                 } else {
                     Snackbar snackbar = Snackbar
@@ -78,6 +84,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private boolean isValidMail(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private void hideSoftKeyBoard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+        if (imm.isAcceptingText()) { // verify if the soft keyboard is open
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
     }
 
 }

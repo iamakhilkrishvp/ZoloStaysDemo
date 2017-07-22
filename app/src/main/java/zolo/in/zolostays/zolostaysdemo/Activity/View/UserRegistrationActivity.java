@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         parentLayout = (ScrollView) findViewById(R.id.parentLayout);
         utility = new Utility(getApplicationContext());
         dbHelper = new ZoloDbHelper(getApplicationContext());
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         etPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
