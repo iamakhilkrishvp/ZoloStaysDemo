@@ -22,6 +22,11 @@ public class User {
 
     }
 
+    public User(String userName, String emailId) {
+        this.username = userName;
+        this.userEmailId = emailId;
+    }
+
     public int getUserId() {
         return userId;
     }

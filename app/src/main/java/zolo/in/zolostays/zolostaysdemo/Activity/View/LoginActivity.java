@@ -18,6 +18,10 @@ import android.widget.TextView;
 
 import com.xwray.passwordview.PasswordView;
 
+import java.util.ArrayList;
+
+import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
+import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
 import zolo.in.zolostays.zolostaysdemo.Activity.Presenter.Utility;
 import zolo.in.zolostays.zolostaysdemo.R;
 
@@ -138,8 +142,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (responseValue == 1) {
             Snackbar snackbar = Snackbar
                     .make(parentLayout, "Log in successfully.", Snackbar.LENGTH_LONG);
-
             snackbar.show();
+            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            intent.putExtra("USER_NUMBER", phoneNumber);
+            startActivity(intent);
         } else if (responseValue == 0) {
             Snackbar snackbar = Snackbar
                     .make(parentLayout, "Sorry, we couldin't find you.", Snackbar.LENGTH_LONG);
@@ -152,5 +158,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             snackbar.show();
         }
 
+    }
+
+    public void test() {
+        Log.e("nknbk", " mhbj");
+        ZoloDbHelper zoloDbHelper = new ZoloDbHelper(getApplicationContext());
+        ArrayList<User> userDetailsList = new ArrayList<User>();
+        userDetailsList = (ArrayList<User>) zoloDbHelper.getUserDetailsFromUserDetailsTable();
+        for (int i = 0; i < userDetailsList.size(); i++) {
+            Log.e("phone Number....", userDetailsList.get(i).getUserPhoneNumber());
+        }
     }
 }

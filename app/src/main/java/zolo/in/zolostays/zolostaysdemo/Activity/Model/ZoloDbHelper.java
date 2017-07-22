@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ZoloDbHelper extends SQLiteOpenHelper{
 
-    private static int databaseversion = 1;
     private static final String databasename = "zolo_db";
     private static final String userDetailsTable = "userDetailsTable";
     private static final String userId = "userId";
@@ -23,13 +22,12 @@ public class ZoloDbHelper extends SQLiteOpenHelper{
     private static final String password = "password";
     private static final String userPhoneNumber = "userPhoneNumber";
     private static final String userEmailId = "userEmailId";
-
-
     private static final String createUserDetailsTable = "create table userDetailsTable(userId integer primary key autoincrement,"
             + "userName text,"
             + "password text,"
             + "userPhoneNumber text,"
             + "userEmailId text);";
+    private static int databaseversion = 1;
 
     public ZoloDbHelper(Context context) {
         super(context, databasename, null, databaseversion);
@@ -90,7 +88,7 @@ public class ZoloDbHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getReadableDatabase();
         List<User> userDetailsList = new ArrayList<User>();
-        String getUserDetailsQuery = "SELECT  * FROM userDetailsTable WHERE userName = '"+
+        String getUserDetailsQuery = "SELECT  * FROM userDetailsTable WHERE userPhoneNumber = '" +
                 userPhoneNumber+"'";
         Cursor cursor = db.rawQuery(getUserDetailsQuery, null);
         if (cursor != null)
@@ -111,5 +109,17 @@ public class ZoloDbHelper extends SQLiteOpenHelper{
             } while (cursor.moveToNext());
         }
         return userDetailsList;
+    }
+
+    public void updateUserProfileDetails(User user, String userPhone_Number) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(userName, user.getUsername());
+        values.put(userEmailId, user.getUserEmailId());
+
+        db.update(userDetailsTable, values, userPhoneNumber + " =?",
+                new String[]{userPhone_Number});
     }
 }

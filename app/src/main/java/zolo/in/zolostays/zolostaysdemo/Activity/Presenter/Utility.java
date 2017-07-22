@@ -20,10 +20,8 @@ public class Utility {
         ZoloDbHelper dbHelper = new ZoloDbHelper(context);
         boolean value = false;
         userDetailsList = (ArrayList<User>) dbHelper.getUserDetailsFromUserDetailsTable();
-        for (User user: userDetailsList) {
-            Log.e("number..",user.getUserPhoneNumber());
-            Log.e("phoneNumber..",phoneNumber);
-            if(phoneNumber.equals(user.getUserPhoneNumber())){
+        for (int i = 0; i < userDetailsList.size(); i++) {
+            if (phoneNumber.equals(userDetailsList.get(i).getUserPhoneNumber())) {
                 value = true;
                 break;
             }
@@ -38,6 +36,7 @@ public class Utility {
         ZoloDbHelper dbHelper = new ZoloDbHelper(context);
         int returnValue;
         userDetailsList = (ArrayList<User>) dbHelper.getUserDetailsFromUserDetailsTable(userPhoneNumber);
+        Log.e("user size....", "" + userDetailsList.size());
         if(userDetailsList.size() == 0){
             returnValue = 0;
         }
