@@ -8,14 +8,11 @@ import java.util.ArrayList;
 import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
 import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
 
-/**
- * Created by anujith47 on 21/07/17.
- */
-
 public class Utility {
-    Context context;
-    ArrayList<User> userDetailsList = new ArrayList<User>();
-    Utility(Context ctx){
+    private Context context;
+    private ArrayList<User> userDetailsList = new ArrayList<User>();
+
+    public Utility(Context ctx) {
         this.context = ctx;
     }
 
@@ -39,7 +36,7 @@ public class Utility {
     }
     public int getValidityOfUser(String userPhoneNumber,String password){
         ZoloDbHelper dbHelper = new ZoloDbHelper(context);
-        int returnValue = 0;
+        int returnValue;
         userDetailsList = (ArrayList<User>) dbHelper.getUserDetailsFromUserDetailsTable(userPhoneNumber);
         if(userDetailsList.size() == 0){
             returnValue = 0;
