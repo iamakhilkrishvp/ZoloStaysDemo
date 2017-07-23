@@ -9,15 +9,16 @@ import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
 import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
 
 public class Utility {
+    ZoloDbHelper dbHelper;
     private Context context;
     private ArrayList<User> userDetailsList = new ArrayList<User>();
-
     public Utility(Context ctx) {
         this.context = ctx;
+        dbHelper = new ZoloDbHelper(context);
     }
 
     public boolean checkUserPhoneNumber(String phoneNumber){
-        ZoloDbHelper dbHelper = new ZoloDbHelper(context);
+
         boolean value = false;
         userDetailsList = (ArrayList<User>) dbHelper.getUserDetailsFromUserDetailsTable();
         for (int i = 0; i < userDetailsList.size(); i++) {
@@ -33,7 +34,6 @@ public class Utility {
         return value;
     }
     public int getValidityOfUser(String userPhoneNumber,String password){
-        ZoloDbHelper dbHelper = new ZoloDbHelper(context);
         int returnValue;
         userDetailsList = (ArrayList<User>) dbHelper.getUserDetailsFromUserDetailsTable(userPhoneNumber);
         Log.e("user size....", "" + userDetailsList.size());
