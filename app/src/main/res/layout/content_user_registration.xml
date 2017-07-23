@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="zolo.in.zolostays.zolostaysdemo.Activity.View.UserRegistrationActivity"
+    tools:context="zolo.in.zolostays.zolostaysdemo.UI.View.UserRegistrationActivity"
     tools:showIn="@layout/activity_user_registration">
 
     <RelativeLayout
@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="LOG IN"
+            android:text="@string/login_text"
             android:textColor="@color/white" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_below="@+id/textView8"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="33dp"
-            android:text="REGISTER"
+            android:text="@string/register_text"
             android:textColor="@color/white"
             android:textSize="22sp" />
 
@@ -83,7 +83,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/white"
-            android:hint="EMAIL ID"
+            android:hint="@string/hint_email_id"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:textColor="@color/white"
@@ -108,7 +108,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/white"
-            android:hint="YOUR NAME"
+            android:hint="@string/hint_name_id"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:textColor="@color/white"
@@ -133,7 +133,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/white"
-            android:hint="SET PASSWORD"
+            android:hint="@string/set_password_text"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:textColor="@color/white"

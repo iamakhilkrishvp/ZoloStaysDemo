@@ -1,7 +1,6 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.View;
+package zolo.in.zolostays.zolostaysdemo.UI.View;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -12,22 +11,26 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.xwray.passwordview.PasswordView;
 
-import zolo.in.zolostays.zolostaysdemo.Activity.Presenter.Utility;
 import zolo.in.zolostays.zolostaysdemo.R;
+import zolo.in.zolostays.zolostaysdemo.UI.Presenter.Utility;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener {
     TextInputLayout tlPhoneNumberLayout, tlpasswordLayout;
     EditText etPhoneNumber;
     PasswordView etPassword;
     TextView tvForgottenPassword, tvCreateAccountBtn;
     Button btnLogin;
     Utility utility;
+    LinearLayout deaActivatedLayout, activatedLayout;
     ScrollView parentLayout;
+    private int whoHasFocus = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,65 +43,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvCreateAccountBtn = (TextView) findViewById(R.id.createAccountButton);
         btnLogin = (Button) findViewById(R.id.loginButton);
         parentLayout = (ScrollView) findViewById(R.id.parentLayout);
+        deaActivatedLayout = (LinearLayout) findViewById(R.id.deActivatedLayout);
+        activatedLayout = (LinearLayout) findViewById(R.id.activatedLayout);
         btnLogin.setOnClickListener(this);
         tvCreateAccountBtn.setOnClickListener(this);
         tvForgottenPassword.setOnClickListener(this);
-        etPhoneNumber.setHintTextColor(Color.parseColor("#FFEB3B"));
-        etPassword.setHintTextColor(Color.parseColor("#FFEB3B"));
-        btnLogin.setTextColor(Color.parseColor("#40000000"));
-        btnLogin.setBackgroundColor(Color.parseColor("#CCFFEB3B"));
+        etPhoneNumber.setHintTextColor(getResources().getColor(R.color.yellow));
+        etPassword.setHintTextColor(getResources().getColor(R.color.yellow));
+        deaActivatedLayout.setVisibility(View.VISIBLE);
+        activatedLayout.setVisibility(View.GONE);
+        btnLogin.setEnabled(false);
         btnLogin.setEnabled(false);
 
-        etPhoneNumber.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        etPhoneNumber.setOnFocusChangeListener(this);
+        etPhoneNumber.addTextChangedListener(this);
+        etPassword.setOnFocusChangeListener(this);
+        etPassword.addTextChangedListener(this);
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (isValidMobile("" + s)) {
-                    btnLogin.setTextColor(Color.parseColor("#000000"));
-                    btnLogin.setBackgroundColor(Color.parseColor("#FFEB3B"));
-                    btnLogin.setEnabled(true);
-                } else {
-                    btnLogin.setTextColor(Color.parseColor("#40000000"));
-                    btnLogin.setBackgroundColor(Color.parseColor("#CCFFEB3B"));
-                    btnLogin.setEnabled(false);
-                    etPhoneNumber.setError("Enter valid number");
-                }
-            }
-        });
-        etPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (isValidPassword()) {
-
-                    btnLogin.setTextColor(Color.parseColor("#000000"));
-                    btnLogin.setBackgroundColor(Color.parseColor("#CCFFEB3B"));
-                    btnLogin.setEnabled(true);
-                } else {
-                    btnLogin.setTextColor(Color.parseColor("#40000000"));
-                    btnLogin.setBackgroundColor(Color.parseColor("#CCFFEB3B"));
-                    btnLogin.setEnabled(false);
-                }
-            }
-        });
     }
 
     @Override
@@ -118,6 +79,58 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        switch (whoHasFocus) {
+            case 1:
+                if (isValidMobile("" + s)) {
+                    deaActivatedLayout.setVisibility(View.GONE);
+                    activatedLayout.setVisibility(View.VISIBLE);
+                    btnLogin.setEnabled(true);
+                } else {
+                    deaActivatedLayout.setVisibility(View.VISIBLE);
+                    activatedLayout.setVisibility(View.GONE);
+                    btnLogin.setEnabled(false);
+                    etPhoneNumber.setError("Enter valid number");
+                }
+                break;
+            case 2:
+                if (isValidPassword()) {
+                    deaActivatedLayout.setVisibility(View.GONE);
+                    activatedLayout.setVisibility(View.VISIBLE);
+                    btnLogin.setEnabled(true);
+                } else {
+                    deaActivatedLayout.setVisibility(View.VISIBLE);
+                    activatedLayout.setVisibility(View.GONE);
+                    btnLogin.setEnabled(false);
+                }
+                break;
+
+        }
+
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        switch (v.getId()) {
+            case R.id.phoneNumberText:
+                whoHasFocus = 1;
+                break;
+            case R.id.passwordText:
+                whoHasFocus = 2;
+                break;
+        }
+    }
     public boolean isValidPassword() {
 
         // boolean isReady = etPassword.getText().toString().length() > 1;

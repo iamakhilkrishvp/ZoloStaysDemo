@@ -4,10 +4,14 @@
     <string name="prompt_email">PHONE NUMBER</string>
     <string name="hint_phone_number">PHONE NUMBER</string>
     <string name="hint_email_id"> YOUR EMAIL</string>
+    <string name="hint_name_id"> YOUR NAME</string>
     <string name="reset_password_text"> RESET PASSWORD</string>
+    <string name="set_password_text"> SET PASSWORD</string>
     <string name="login_text">LOG IN</string>
     <string name="update_text">UPDATE</string>
     <string name="register_text">REGISTER</string>
+    <string name="forgotten_password_text">forgotten password?</string>
+    <string name="create_account_text">CREATE ACCOUNT</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>

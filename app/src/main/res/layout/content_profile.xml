@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="zolo.in.zolostays.zolostaysdemo.Activity.View.ProfileActivity"
+    tools:context="zolo.in.zolostays.zolostaysdemo.UI.View.ProfileActivity"
     tools:showIn="@layout/activity_profile">
 
     <ImageView

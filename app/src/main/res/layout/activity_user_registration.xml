@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zolo.in.zolostays.zolostaysdemo.Activity.View.UserRegistrationActivity">
+    tools:context="zolo.in.zolostays.zolostaysdemo.UI.View.UserRegistrationActivity">
 
     <include layout="@layout/content_user_registration" />
 

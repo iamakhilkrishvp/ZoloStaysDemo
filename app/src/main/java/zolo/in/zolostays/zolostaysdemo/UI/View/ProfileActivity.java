@@ -1,4 +1,4 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.View;
+package zolo.in.zolostays.zolostaysdemo.UI.View;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
 import zolo.in.zolostays.zolostaysdemo.R;
+import zolo.in.zolostays.zolostaysdemo.UI.Model.User;
+import zolo.in.zolostays.zolostaysdemo.UI.Model.ZoloDbHelper;
 
 public class ProfileActivity extends AppCompatActivity {
     EditText etUserName, etEmailId, etPhoneNumber;

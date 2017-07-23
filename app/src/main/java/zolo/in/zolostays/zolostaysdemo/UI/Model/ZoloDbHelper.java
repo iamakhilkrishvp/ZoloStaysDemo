@@ -1,4 +1,4 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.Model;
+package zolo.in.zolostays.zolostaysdemo.UI.Model;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.View;
+package zolo.in.zolostays.zolostaysdemo.UI.View;
 
 import android.content.Intent;
 import android.graphics.Color;

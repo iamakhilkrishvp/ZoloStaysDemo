@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activity.View.LoginActivity"
+    tools:context=".UI.View.LoginActivity"
     tools:showIn="@layout/activity_login">
 
         <RelativeLayout
@@ -135,7 +135,7 @@
                 android:layout_below="@+id/cardView"
                 android:layout_marginTop="13dp"
                 android:gravity="center"
-                android:text="forgotten password?"
+                android:text="@string/forgotten_password_text"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
             <TextView
@@ -148,7 +148,7 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/white_border"
                 android:gravity="center"
-                android:text="CREATE ACCOUNT"
+                android:text="@string/create_account_text"
                 android:textColor="@color/white" />
 
         </RelativeLayout>

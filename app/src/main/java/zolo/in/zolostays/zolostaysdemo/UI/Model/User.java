@@ -1,4 +1,4 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.Model;
+package zolo.in.zolostays.zolostaysdemo.UI.Model;
 
 /**
  * Created by anujith47 on 21/07/17.

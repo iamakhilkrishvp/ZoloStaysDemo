@@ -1,12 +1,12 @@
-package zolo.in.zolostays.zolostaysdemo.Activity.Presenter;
+package zolo.in.zolostays.zolostaysdemo.UI.Presenter;
 
 import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
 
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.User;
-import zolo.in.zolostays.zolostaysdemo.Activity.Model.ZoloDbHelper;
+import zolo.in.zolostays.zolostaysdemo.UI.Model.User;
+import zolo.in.zolostays.zolostaysdemo.UI.Model.ZoloDbHelper;
 
 public class Utility {
     ZoloDbHelper dbHelper;
